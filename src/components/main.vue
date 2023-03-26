@@ -11,12 +11,12 @@
               content="Please Input First Name"
               placement="top"
             >
-            <el-input v-model="inputValue" placeholder="Search Member Information" />
+            <el-input :prefix-icon="Search" v-model="inputValue" placeholder="Search Member Information" />
             </el-tooltip>
             
           </el-form-item>
           <!--search button 绑定了方法handleClick-->
-          <el-button type="primary" :icon="Search" @click="handleClick">Search</el-button>
+          <!-- <el-button type="primary" :icon="Search" @click="handleClick">Search</el-button> -->
         </el-form>
         <Table :list="memberList" :editClick = 'editClick' :deleteHandle = 'deleteHandle' />
         <!--分页 <pagination></pagination> -->

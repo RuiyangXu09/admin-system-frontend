@@ -202,7 +202,7 @@ const goHome = () =>{
     height: 100%;
     .backGroundImage{
       height: 100%;
-      background-image: url("");
+      background-image: url("../assets/caravan.jpg");
       background-repeat: no-repeat;
       background-size: 100%;
       background-position: 50% 50%;
