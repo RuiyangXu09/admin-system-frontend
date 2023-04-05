@@ -18,6 +18,7 @@
           <!--search button 绑定了方法handleClick-->
           <!-- <el-button type="primary" :icon="Search" @click="handleClick">Search</el-button> -->
         </el-form>
+        <!--因为需要配合搜索功能的api，所以传入的时memberList而不是data.list-->
         <Table :list="memberList" :editClick = 'editClick' :deleteHandle = 'deleteHandle' />
         <!--分页 <pagination></pagination> -->
     </div>

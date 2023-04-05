@@ -34,3 +34,10 @@ export const changeMemberInfo = (data) =>{
 export const deleteMember = (data) =>{
     return request({method: 'get', url: '/api/v1/member/delete', data})
 }
+
+/**
+ * admin list api
+ */
+export const getAdmin = (data) =>{
+    return request({method: 'get', url: '/api/v1/member/search', data})
+}
