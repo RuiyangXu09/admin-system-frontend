@@ -20,15 +20,13 @@
         </el-form>
         <Table :list="memberList" :editClick = 'editClick' :deleteHandle = 'deleteHandle' />
         <!--分页 <pagination></pagination> -->
-        
     </div>
-
     <edit :popShow = "popShow" v-if='popShow' :message='memberIfo.message' :confirmClick ='confirmClick'/>
 </template>
 
 <script setup>
 import { computed, onMounted, reactive, ref } from 'vue';
-import table from './table.vue';
+import Table from './table.vue';
 import edit from './edit.vue';
 import { Search } from '@element-plus/icons-vue'
 import pagination from './pagination.vue'
@@ -99,23 +97,7 @@ const memberList = computed(() =>{
     return item.firstName.indexOf(inputValue.value) >= 0;
   })
 })
-/**
- * search button
- */
-const handleClick =() => {
-  //如果有值 搜索成功
-  if (inputValue.value) {
-    ElMessage({
-    message: 'Search Success',
-    type: 'success',
-  })
-  }else{
-    ElMessage({
-    message: 'None Results',
-    type: 'warning',
-  })
-  }
-}
+
 /**
  * 编辑数据
  */

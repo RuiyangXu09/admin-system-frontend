@@ -67,7 +67,7 @@ const editData = reactive({
     id: message.id,
     firstName: message.firstName,
     lastName: message.lastName,
-    phoneNumber: '64'+ message.phoneNumber,
+    phoneNumber: message.phoneNumber,
     username: message.username,
     password: message.password,
     address: message.address,

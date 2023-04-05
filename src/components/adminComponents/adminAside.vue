@@ -1,47 +1,24 @@
 <template>
     <el-menu class="el-menu-vertical-demo" active-text-color="#FFFFFF" background-color="#FF9933" text-color="#000000" unique-opened="true">
         <div class="akarana_icon">
-            <img src="../assets/ICON.png">
+            <img src="../../assets/ICON.png">
             <span>Akarana Administer System</span>
         </div>
-
-        <!--用户管理菜单-->
-        <el-sub-menu index="1">
-            <template #title>
-                <el-icon><User /></el-icon>
-                <span>Club Members</span>
-            </template>
-                <el-menu-item index="1-1" @click="register">Member Information Register</el-menu-item>
-        </el-sub-menu>
-
         <!--管理员管理菜单-->
         <el-sub-menu index="2">
             <template #title>
                 <el-icon><Tools /></el-icon>
                 <span>Administer</span>
             </template>
-                <el-menu-item index="2-1" @click="adminInfo">Administer Setting</el-menu-item>
-                <el-menu-item index="2-2">Photo Gallery</el-menu-item>
-                <el-menu-item index="2-3">Club Newsletter</el-menu-item>
+                <el-menu-item index="2-1">Photo Gallery</el-menu-item>
+                <el-menu-item index="2-2">Club Newsletter</el-menu-item>
         </el-sub-menu>
   </el-menu>
 </template>
 
 <script setup>
-import router from "../router"
-/**
- * click 事件 跳转至 register page
- */
-const register = () =>{
-    router.push('/register');
-}
+import router from "../../router/index"
 
-/**
- * click 事件 跳转至 admin info page
- */
-const adminInfo = () =>{
-    router.push('/admin')
-}
 </script>
 
 <style lang="less" scoped>

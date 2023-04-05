@@ -2,34 +2,24 @@
     <div class="header">
         <!--折叠左菜单图标-->
         <div class="homeIcon">
-            <el-icon size="30px"><Expand /></el-icon>
-            <span>Main Page</span>
+
         </div>
         <div class="homeIcon">
-            <span>Welcome To Akarana Caravan Club Administer System</span>
+            <span>Administer Setting</span>
         </div>
         <!--头部右标签 -->
         <div class="admin">
             <!--log out button-->
-            <el-button type="primary" @click="logOut">Log Out</el-button>
+            <el-button type="primary" @click="goHome">Home</el-button>
         </div>
     </div>
 </template>
 
 <script setup>
-import router from '../router/index';
-//click to log out
-const logOut = () =>{
-    //warning info log out
-    ElNotification({
-    title: 'Log Out',
-    message: 'Log Out Success!',
-    type: 'warning',
-    offset: 100
-  })
-    router.push('/login'),
-    //click log out button remove token
-    localStorage.removeItem('token');
+import router from "../../router"
+
+const goHome = () =>{
+    router.push('/home');
 }
 </script>
 
@@ -69,6 +59,22 @@ const logOut = () =>{
         span{
             margin-left: 10px;
         }
+    }
+}
+.akarana_icon {
+    display: flex;
+    align-items: center;
+    font-weight: 320;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 113%;
+    height: 60px;
+    white-space: nowrap;
+    padding-left: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    img{
+        width: 45px;
+        height: 40px;
+        margin-right: 10px;
     }
 }
 </style>
