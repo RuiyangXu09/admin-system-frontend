@@ -41,3 +41,10 @@ export const deleteMember = (data) =>{
 export const getAdmin = (data) =>{
     return request({method: 'get', url: '/api/v1/member/search', data})
 }
+
+/**
+ * admin info edit api
+ */
+export const updateAdmin = (data) =>{
+    return request({method: 'get', url: '/api/v1/member/edit', data})
+}

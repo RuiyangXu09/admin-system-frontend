@@ -102,7 +102,7 @@ const memberList = computed(() =>{
 /**
  * 编辑数据
  */
-//课程修改接口调用
+//member修改接口调用
 const changeMemberInfoData = async(query) =>{
   const {firstName, lastName, phoneNumber, username, password, address, emailAddress, birthday, occupation, id} = query
   const res = await changeMemberInfo({firstName, lastName, phoneNumber, username, password, address, emailAddress, birthday, occupation, id})

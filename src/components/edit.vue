@@ -80,6 +80,7 @@ const editData = reactive({
  * 表单的校验规则
  */
 const ruleFromRef = ref(null);
+//初始渲染为空，当表单完成从数据库提取数据传递到前端的渲染后,就可以拿到对应的元素
 const submitForm = async(fromEl) =>{
     if (!fromEl) return;
     await fromEl.validate((valid, fields) =>{
