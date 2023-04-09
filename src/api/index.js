@@ -48,3 +48,10 @@ export const getAdmin = (data) =>{
 export const updateAdmin = (data) =>{
     return request({method: 'get', url: '/api/v1/member/edit', data})
 }
+
+/**
+ * photo display api
+ */
+export const displayImage = (data) =>{
+    return request({method: 'get', url: '/api/v1/admin/display', data})
+}

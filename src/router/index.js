@@ -31,7 +31,7 @@ const router = createRouter({
 
         {
             path:'/photo',
-            component: ()=> import('../views/Photo.vue')
+            component: ()=> import('../views/Photo.vue'),
         },
 
         {

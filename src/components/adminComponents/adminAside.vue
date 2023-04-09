@@ -10,15 +10,21 @@
                 <el-icon><Tools /></el-icon>
                 <span>Administer</span>
             </template>
-                <el-menu-item index="2-1">Photo Gallery</el-menu-item>
-                <el-menu-item index="2-2">Club Newsletter</el-menu-item>
+                <el-menu-item index="2-1" @click="goPhoto">Photo Gallery</el-menu-item>
+                <el-menu-item index="2-2">Create Rally</el-menu-item>
+                <el-menu-item index="2-3">Rally Setting</el-menu-item>
         </el-sub-menu>
   </el-menu>
 </template>
 
 <script setup>
 import router from "../../router/index"
-
+/**
+ * click to photo page
+ */
+const goPhoto = () =>{
+    router.push('/photo');
+}
 </script>
 
 <style lang="less" scoped>

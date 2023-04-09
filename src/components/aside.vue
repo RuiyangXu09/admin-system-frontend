@@ -21,8 +21,9 @@
                 <span>Administer</span>
             </template>
                 <el-menu-item index="2-1" @click="adminInfo">Administer Setting</el-menu-item>
-                <el-menu-item index="2-2">Photo Gallery</el-menu-item>
-                <el-menu-item index="2-3">Club Newsletter</el-menu-item>
+                <el-menu-item index="2-2" @click="photo">Photo Gallery</el-menu-item>
+                <el-menu-item index="2-3">Create Rally</el-menu-item>
+                <el-menu-item index="2-4">Rally Setting</el-menu-item>
         </el-sub-menu>
   </el-menu>
 </template>
@@ -41,6 +42,13 @@ const register = () =>{
  */
 const adminInfo = () =>{
     router.push('/admin')
+}
+
+/**
+ * click to photo page
+ */
+const photo = () =>{
+    router.push('/photo')
 }
 </script>
 
