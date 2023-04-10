@@ -1,13 +1,22 @@
 <template>
   <div class="photo-wall">
-    <el-row :gutter="10">
+    <!-- <el-row :gutter="10">
       <el-col v-for="photo in photo.list" :key="photo.id" :span="6">
         <div class="photo-card">
           <img :src="photo.url" alt="" class="photo-image">
-          <el-button type="primary">Upload</el-button>
           <el-button type="danger">Delete</el-button>
         </div>
       </el-col>
+      <el-button type="primary">Upload</el-button>
+    </el-row> -->
+    <el-row>
+      <el-upload v-model:file-list="photo.list" 
+      list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
+      <el-icon><Plus /></el-icon>
+      </el-upload>
+      <el-dialog v-model="dialogVisible">
+        <img w-full :src="dialogImageUrl" alt="Preview Image" />
+      </el-dialog>
     </el-row>
   </div>
 </template>
