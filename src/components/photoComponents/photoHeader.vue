@@ -1,15 +1,13 @@
 <template>
     <div class="header">
         <!--折叠左菜单图标-->
-        <div class="homeIcon">
-
-        </div>
+        <div class="homeIcon"></div>
         <div class="homeIcon">
             <span>Welcome To Akarana Caravan Club Photo Gallery</span>
         </div>
         <!--头部右标签 -->
         <div class="admin">
-            <!--log out button-->
+            <!--home button-->
             <el-button type="primary" @click="goHome">Home</el-button>
         </div>
     </div>
