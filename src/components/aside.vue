@@ -22,8 +22,16 @@
             </template>
                 <el-menu-item index="2-1" @click="adminInfo">Administer Setting</el-menu-item>
                 <el-menu-item index="2-2" @click="photo">Photo Gallery</el-menu-item>
-                <el-menu-item index="2-3">Create Rally</el-menu-item>
-                <el-menu-item index="2-4">Rally Setting</el-menu-item>
+        </el-sub-menu>
+
+        <!--rally管理菜单-->
+        <el-sub-menu index="3">
+            <template #title>
+                <el-icon><Flag /></el-icon>
+                <span>Rally</span>
+            </template>
+            <el-menu-item index="3-1">Create Rally</el-menu-item>
+            <el-menu-item index="3-2">Rally Setting</el-menu-item>
         </el-sub-menu>
   </el-menu>
 </template>

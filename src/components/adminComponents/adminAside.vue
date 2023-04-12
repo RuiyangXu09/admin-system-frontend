@@ -5,14 +5,12 @@
             <span>Akarana Administer System</span>
         </div>
         <!--管理员管理菜单-->
-        <el-sub-menu index="2">
+        <el-sub-menu index="1">
             <template #title>
                 <el-icon><Tools /></el-icon>
                 <span>Administer</span>
             </template>
-                <el-menu-item index="2-1" @click="goPhoto">Photo Gallery</el-menu-item>
-                <el-menu-item index="2-2">Create Rally</el-menu-item>
-                <el-menu-item index="2-3">Rally Setting</el-menu-item>
+                <el-menu-item index="1-1" @click="goPhoto">Photo Gallery</el-menu-item>
         </el-sub-menu>
   </el-menu>
 </template>
