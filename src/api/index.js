@@ -55,3 +55,17 @@ export const updateAdmin = (data) =>{
 export const displayImage = (data) =>{
     return request({method: 'get', url: '/api/v1/admin/display', data})
 }
+
+/**
+ * upload photo api
+ */
+export const uploadImage = (data) =>{
+    return request({method: 'post', url: '/api/v1/admin/upload', data})
+}
+
+/**
+ * delete photo api
+ */
+export const deleteImage = (data) =>{
+    return request ({method: 'get', url: '/api/v1/admin/delete', data})
+}
