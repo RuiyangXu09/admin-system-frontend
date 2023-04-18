@@ -107,11 +107,10 @@ const changeMemberInfoData = async(query) =>{
   const {firstName, lastName, phoneNumber, username, password, address, emailAddress, birthday, occupation, id} = query
   const res = await changeMemberInfo({firstName, lastName, phoneNumber, username, password, address, emailAddress, birthday, occupation, id})
   if (res?.message) {
-    //会打印多次提示信息 需要改变member controller中的if条件语句 匹配不同修改的情况
-    // ElMessage({
-    //   message: res.message,
-    //   type: 'success'
-    // })
+    ElMessage({
+      message: res.message,
+      type: 'success'
+    })
   }
 }
 const memberIfo = reactive({
@@ -159,15 +158,7 @@ const confirmClick = (val) =>{
     //关闭弹窗
     isShowPop(false);
     //修改接口的调用
-    changeMemberInfoData({firstName: val.firstName, id:val.id});
-    changeMemberInfoData({lastName: val.lastName, id:val.id});
-    changeMemberInfoData({phoneNumber: val.phoneNumber, id:val.id});
-    changeMemberInfoData({username: val.username, id:val.id});
-    changeMemberInfoData({password: val.password, id:val.id});
-    changeMemberInfoData({address: val.address, id:val.id});
-    changeMemberInfoData({emailAddress: val.emailAddress, id:val.id});
-    changeMemberInfoData({birthday: val.birthday, id:val.id});
-    changeMemberInfoData({occupation: val.occupation, id:val.id});
+    changeMemberInfoData({firstName: val.firstName, lastName: val.lastName, phoneNumber: val.phoneNumber, username: val.username, username: val.username, password: val.password, address: val.address, emailAddress: val.emailAddress, birthday: val.birthday, occupation: val.occupation, id:val.id});
   }else{
     ElMessage({
       showClose: true,

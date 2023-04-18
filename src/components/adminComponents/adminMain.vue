@@ -8,9 +8,9 @@
 
 <script setup>
 import adminTable from './adminTable.vue';
+import adminEdit from './adminEdit.vue'
 import { onMounted, reactive, ref } from 'vue';
 import { getAdmin, updateAdmin } from '../../api/index';
-import adminEdit from './adminEdit.vue'
 import { ElMessage } from 'element-plus';
 /**
  * 初始化数据
@@ -91,5 +91,56 @@ const confirmClick = (val) =>{
 </script>
 
 <style lang="less" scoped>
+.el-form {
+  display: flex;
+}
 
+.main {
+  background-color: whitesmoke;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: x-large;
+
+  .input-with-select {
+    width: 400px;
+    margin-bottom: 40px;
+  }
+}
+
+:deep(.el-table__header-wrapper) {
+  position: fixed;
+  z-index: 20;
+}
+
+:deep(.el-table__inner-wrapper) {
+  overflow: hidden;
+}
+
+:deep(.el-table__body-wrapper) {
+  margin-top: 40px;
+}
+
+:deep(.el-input__inner) {
+  width: 300px;
+  margin-right: 10px;
+}
+
+:deep(.warning-row) {
+  --el-table-tr-bg-color: var(--el-color-warning-light-9) !important;
+  height: 140px !important;
+}
+
+.table {
+  height: 80vh;
+  width: 85vw;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.table::-webkit-scrollbar {
+  display: none
+}
 </style>

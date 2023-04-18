@@ -37,7 +37,17 @@ const router = createRouter({
         {
             path:'/admin',
             component: ()=> import('../views/AdministerInfo.vue')
-        }
+        },
+
+        {
+            path: '/rally',
+            component: () => import('../views/Rally.vue')
+        },
+        
+        {
+            path: '/createRally',
+            component: () => import('../views/CreateRally.vue')
+        },
     ],
 })
 

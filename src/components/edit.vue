@@ -14,7 +14,7 @@
 
           <el-form-item label="Phone Number" prop="phoneNumber">
             <!--input Phone number-->
-            <el-input v-model.number="editData.phoneNumber" placeholder="Phone Number" />
+            <el-input v-model="editData.phoneNumber" placeholder="Phone Number" />
           </el-form-item>
 
           <el-form-item label="User Name" prop="username">

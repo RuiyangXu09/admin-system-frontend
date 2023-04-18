@@ -30,8 +30,7 @@
                 <el-icon><Flag /></el-icon>
                 <span>Rally</span>
             </template>
-            <el-menu-item index="3-1">Create Rally</el-menu-item>
-            <el-menu-item index="3-2">Rally Setting</el-menu-item>
+            <el-menu-item index="3-1" @click="rally">Rally Setting</el-menu-item>
         </el-sub-menu>
   </el-menu>
 </template>
@@ -57,6 +56,13 @@ const adminInfo = () =>{
  */
 const photo = () =>{
     router.push('/photo')
+}
+
+/**
+ * click to rally page
+ */
+const rally = () =>{
+    router.push('/rally')
 }
 </script>
 

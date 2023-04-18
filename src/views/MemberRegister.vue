@@ -104,12 +104,11 @@
                     </el-input>
                     </el-tooltip>
                 </el-form-item>
-
+                
+                <!--home button-->
+                <el-button class="register_submit" @click="goHome">Cancel</el-button>
                 <!--register button-->
                 <el-button type="primary" class="register_submit" @click="Register">Register</el-button>
-
-                <!--home button-->
-                <el-button type="primary" class="register_submit" @click="goHome">Home</el-button>
             </el-form>
         </div>
     </div>

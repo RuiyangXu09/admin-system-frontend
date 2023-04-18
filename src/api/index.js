@@ -69,3 +69,38 @@ export const uploadImage = (data) =>{
 export const deleteImage = (data) =>{
     return request ({method: 'get', url: '/api/v1/admin/delete', data})
 }
+
+/**
+ * create rally api
+ */
+export const getRally = (data) =>{
+    return request ({method: 'post', url: '/api/v1/admin/create', data})
+}
+
+/**
+ * list rally api
+ */
+export const listRally = (data) =>{
+    return request({method: 'get', url: '/api/v1/member/listRally', data})
+}
+
+/**
+ * delete rally api
+ */
+export const deleteRally = (data) =>{
+    return request({method: 'get', url: '/api/v1/member/deleteRally', data})
+}
+
+/**
+ * set rally status api
+ */
+export const setupRally = (data) =>{
+    return request({method: 'get', url: '/api/v1/member/setup', data})
+}
+
+/**
+ * update rally info api
+ */
+export const updateRally = (data) =>{
+    return request ({method: 'get', url: '/api/v1/member/updateRally', data})
+}
