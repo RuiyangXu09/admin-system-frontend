@@ -1,7 +1,7 @@
 <template>
-  <el-dialog title="Rally Details" modelValue="popShow" width="35%" center :show-close="false">
+  <el-dialog title="Rally Details" modelValue="popShow" width="39%" center :show-close="false">
     <el-form :model="rallyDetails">
-        <el-descriptions :model="rallyDetails" class="font-style">
+      <el-descriptions :model="rallyDetails" class="font-style">
         <el-descriptions-item label="Main Title" prop="mainTitle">
           {{ rallyDetails.mainTitle }}
         </el-descriptions-item>
@@ -30,9 +30,9 @@
       </el-descriptions>
 
       <el-descriptions class="font-style">
-      <el-descriptions-item label="Map Url">
-        {{ rallyDetails.mapUrl }}
-      </el-descriptions-item>
+        <el-descriptions-item label="Map Url">
+          <div v-html="rallyDetails.mapUrl" />
+        </el-descriptions-item>
       </el-descriptions>
     
       <el-form-item>

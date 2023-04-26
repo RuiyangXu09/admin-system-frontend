@@ -92,10 +92,17 @@ export const deleteRally = (data) =>{
 }
 
 /**
- * set rally status api
+ * set rally close api
  */
-export const setupRally = (data) =>{
-    return request({method: 'get', url: '/api/v1/member/setup', data})
+export const closeRally = (data) =>{
+    return request({method: 'get', url: '/api/v1/member/close', data})
+}
+
+/**
+ * set rally open api
+ */
+export const openRally = (data) =>{
+    return request({method: 'get', url: '/api/v1/member/open', data})
 }
 
 /**

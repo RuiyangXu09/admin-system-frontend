@@ -46,7 +46,7 @@ onMounted(() =>{
  */
 const dialogImageUrl = ref('')
 const dialogVisible = ref(false)
- const handlePictureCardPreview=  (uploadFile) => {
+const handlePictureCardPreview=  (uploadFile) => {
   dialogImageUrl.value = uploadFile.url;
   dialogVisible.value = true;
 }

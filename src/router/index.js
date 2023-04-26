@@ -2,7 +2,8 @@ import { createRouter, createWebHashHistory} from 'vue-router';
 
 //路由配置 
 const router = createRouter({
-    history: createWebHashHistory(), //选择hash路由
+    //选择hash路由
+    history: createWebHashHistory(), 
     routes: [
         {
             path:'/',

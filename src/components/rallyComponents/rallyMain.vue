@@ -1,6 +1,6 @@
 <template>
     <div>
-        <rallyTable :list="data.list" :previewClick="previewClick" :deleteHandle="deleteHandle" :setupHandle="setupHandle" :editClick="editClick" />
+        <rallyTable :list="data.list" :previewClick="previewClick" :deleteHandle="deleteHandle" :closeHandle="closeHandle" :editClick="editClick" :openHandle="openHandle"/>
     </div>
     <rallyPreview :popShow="popShow" v-if="popShow" :message="rallyItemState.message" :cancelClick="cancelClick" />
     <rallyEdit :editShow="editShow" v-if="editShow" :item="editItemState.item" :cancelClick="cancelClick" :confirmClick="confirmClick"/>
@@ -11,7 +11,7 @@ import rallyTable from './rallyTable.vue';
 import rallyPreview from './rallyPreview.vue';
 import rallyEdit from './rallyEdit.vue';
 import { onMounted, reactive, ref } from 'vue';
-import { listRally, deleteRally, setupRally, updateRally } from '../../api/index';
+import { listRally, deleteRally, closeRally, openRally, updateRally } from '../../api/index';
 import { ElMessage } from 'element-plus';
 import emitter from "../../utils/eventBus";
 
@@ -154,10 +154,10 @@ const deleteHandle = (val) =>{
 }
 
 /**
- * set rally status api
+ * set rally close api
  */
-const setupRallyData = async(query) =>{
-    const res = await setupRally({id: query});
+const closeRallyData = async(query) =>{
+    const res = await closeRally({id: query});
     if (res?.message) {
         ElMessage({
             message: res.message,
@@ -165,67 +165,39 @@ const setupRallyData = async(query) =>{
         })
     }
 }
-const setupHandle = (val) =>{
+
+const closeHandle = (val) =>{
     if (val) {
         data.list = data.list.filter((item) =>{
             return item.id !== val
         })
-        setupRallyData(val);
+        closeRallyData(val);
+    }
+}
+
+/**
+ * set rally open api
+ */
+ const openRallyData = async(query) =>{
+    const res = await openRally({id: query});
+    if (res?.message) {
+        ElMessage({
+            message: res.message,
+            type: 'success'
+        })
+    }
+}
+
+const openHandle = (val) =>{
+    if (val) {
+        data.list = data.list.filter((item) =>{
+            return item.id !== val
+        })
+        openRallyData(val);
     }
 }
 </script>
 
 <style lang="less" scoped>
-.el-form {
-  display: flex;
-}
 
-.main {
-  background-color: whitesmoke;
-  padding: 20px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: x-large;
-
-  .input-with-select {
-    width: 400px;
-    margin-bottom: 40px;
-  }
-}
-
-:deep(.el-table__header-wrapper) {
-  position: fixed;
-  z-index: 20;
-}
-
-:deep(.el-table__inner-wrapper) {
-  overflow: hidden;
-}
-
-:deep(.el-table__body-wrapper) {
-  margin-top: 40px;
-}
-
-:deep(.el-input__inner) {
-  width: 300px;
-  margin-right: 10px;
-}
-
-:deep(.warning-row) {
-  --el-table-tr-bg-color: var(--el-color-warning-light-9) !important;
-  height: 140px !important;
-}
-
-.table {
-  height: 80vh;
-  width: 85vw;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-
-.table::-webkit-scrollbar {
-  display: none
-}
 </style>

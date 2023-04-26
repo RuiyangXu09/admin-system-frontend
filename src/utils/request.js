@@ -34,14 +34,12 @@ service.interceptors.response.use((res) => {
 
     if (res.data.code === 0) {
         return res.data
+    }else {
+        ElMessage({
+            message: 'Failed',
+            type: 'warning'
+        });
     }
-    //编辑member info时 触发该message的原因在于 后端代码中会触发joi错误中间件  可以尝试将所有joi检查文件和对应代码删去
-    // else {
-    //     ElMessage({
-    //         message: 'Success',
-    //         type: 'error'
-    //     });
-    // }
 
     if (message === 'Authorization failed') {
         router.push('/login')
