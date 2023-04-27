@@ -45,7 +45,7 @@
                     </el-input>
                 </el-form-item>
 
-                <el-form-item>
+                <el-form-item prop="address">
                   <el-tooltip
                       class="box-item"
                       effect="light"
@@ -60,7 +60,7 @@
                     </el-tooltip>
                 </el-form-item>
 
-                <el-form-item>
+                <el-form-item prop="emailAddress">
                   <el-tooltip
                       class="box-item"
                       effect="light"
@@ -75,7 +75,7 @@
                     </el-tooltip>
                 </el-form-item>
 
-                <el-form-item>
+                <el-form-item prop="birthday">
                   <el-tooltip
                       class="box-item"
                       effect="light"
@@ -90,7 +90,7 @@
                     </el-tooltip>
                 </el-form-item>
 
-                <el-form-item>
+                <el-form-item prop="occupation">
                   <el-tooltip
                       class="box-item"
                       effect="light"
@@ -148,6 +148,10 @@ lastName:[{required: 'true', trigger: 'blur', message: 'Please input Last Name'}
 phoneNumber:[{required: 'true', trigger: 'blur', message: 'Please input Phone Number'}],
 username:[{required: 'true', trigger: 'blur', message: 'Please input the User Name'}],
 password:[{required: 'true', trigger: 'blur', message: 'Please input the Password'}],
+address:[{required: 'true', trigger: 'blur', message: 'Please input the Address'}],
+emailAddress:[{required: 'true', trigger: 'blur', message: 'Please input the Email Address'}],
+birthday:[{required: 'true', trigger: 'blur', message: 'Please input the Birthday'}],
+occupation:[{required: 'true', trigger: 'blur', message: 'Please input the Occupation'}],
 }
 
 /**
