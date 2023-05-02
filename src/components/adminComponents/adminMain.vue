@@ -37,14 +37,14 @@ onMounted(() =>{
  */
 //admin info修改接口调用
 const updateAdminInfoData = async(query) =>{
-    const {admin, password, id} = query
-    const res = await updateAdmin({admin, password, id});
-    if (res?.message) {
-        ElMessage({
-            message: res.message,
-            type: 'success'
-        })
-    }
+  const {admin, password, id} = query
+  const res = await updateAdmin({admin, password, id});
+  if (res?.message) {
+      ElMessage({
+          message: res.message,
+          type: 'success'
+      })
+  }
 }
 //需要编辑的数据
 const adminInfo = reactive({

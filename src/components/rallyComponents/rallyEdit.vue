@@ -18,7 +18,7 @@
           </el-form-item>
 
           <el-form-item label="Content" prop="content" required>
-            <el-input v-model="editRally.content" />
+            <el-input v-model="editRally.content" type="textarea"/>
           </el-form-item>
 
           <!--两个button-->
