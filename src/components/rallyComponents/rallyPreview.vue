@@ -1,37 +1,51 @@
 <template>
-  <el-dialog title="Rally Details" modelValue="popShow" width="39%" center :show-close="false">
+  <el-dialog title="Rally Details" modelValue="popShow" width="60%" center :show-close="false">
     <el-form :model="rallyDetails">
       <el-descriptions :model="rallyDetails" class="font-style">
-        <el-descriptions-item label="Main Title" prop="mainTitle">
-          {{ rallyDetails.mainTitle }}
+        <el-descriptions-item label="Main Title: " prop="mainTitle">
+          <div>
+            {{ rallyDetails.mainTitle }}
+          </div>
         </el-descriptions-item>
 
-        <el-descriptions-item label="Sub Title">
-          {{ rallyDetails.subTitle }}
+        <el-descriptions-item label="Sub Title: ">
+          <div>
+            {{ rallyDetails.subTitle }}
+          </div>
         </el-descriptions-item>
 
-        <el-descriptions-item label="Time">
-          {{ rallyDetails.time }}
+        <el-descriptions-item label="Time: ">
+          <div>
+            {{ rallyDetails.time }}
+          </div>
         </el-descriptions-item>
 
-        <el-descriptions-item label="Status">
-          {{ rallyDetails.status }}
+        <el-descriptions-item label="Status: ">
+          <div>
+            {{ rallyDetails.status }}
+          </div>
         </el-descriptions-item>
 
-        <el-descriptions-item label="Address">
-          {{ rallyDetails.address }}
+        <el-descriptions-item label="Address: ">
+          <div>
+            {{ rallyDetails.address }}
+          </div>
         </el-descriptions-item>
       </el-descriptions>
 
       <el-descriptions :model="rallyDetails" class="font-style">
-        <el-descriptions-item label="Content">
-          <span class="font-size">{{ rallyDetails.content }}</span>
+        <el-descriptions-item label="Content: ">
+          <div>
+            <span class="font-size">
+              {{ rallyDetails.content }}
+            </span>
+          </div>
         </el-descriptions-item>
       </el-descriptions>
 
       <el-descriptions class="font-style">
-        <el-descriptions-item label="Map Url">
-          <div v-html="rallyDetails.mapUrl" />
+        <el-descriptions-item label="Map Url: ">
+          <div class="vhtml-center" v-html="rallyDetails.mapUrl" />
         </el-descriptions-item>
       </el-descriptions>
     
@@ -64,6 +78,13 @@ const rallyDetails = reactive({
 .font-size {
   font-size: 17px;
 }
+
+.vhtml-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .font-style {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
