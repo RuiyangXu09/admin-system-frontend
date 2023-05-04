@@ -22,19 +22,34 @@
                 </el-form-item>
 
                 <el-form-item prop="phoneNumber">
+                  <el-tooltip
+                      class="box-item"
+                      effect="light"
+                      content="If No Phone Number, Please Input None"
+                      placement="top"
+                    >
                     <el-input v-model="register.phoneNumber" placeholder="Phone Number" clearable>
                         <template #prepend>
                             <el-icon><Phone /></el-icon>
                         </template>
                     </el-input>
+                  </el-tooltip>
+                    
                 </el-form-item>
 
                 <el-form-item prop="username">
+                  <el-tooltip
+                      class="box-item"
+                      effect="light"
+                      content="Do not enter a duplicate User Name"
+                      placement="top"
+                    >
                     <el-input v-model="register.username" placeholder="User Name" clearable>
                         <template #prepend>
                             <el-icon><UserFilled /></el-icon>
                         </template>
                     </el-input>
+                  </el-tooltip> 
                 </el-form-item>
 
                 <el-form-item prop="password">
@@ -72,7 +87,7 @@
                             <el-icon><Message /></el-icon>
                         </template>
                     </el-input>
-                    </el-tooltip>
+                  </el-tooltip>
                 </el-form-item>
 
                 <el-form-item prop="birthday">
