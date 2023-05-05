@@ -111,3 +111,10 @@ export const openRally = (data) =>{
 export const updateRally = (data) =>{
     return request ({method: 'get', url: '/api/v1/member/updateRally', data})
 }
+
+/**
+ * search email list api
+ */
+export const searchEmailList = (data) =>{
+    return request ({method: 'get', url: '/api/v1/member/listFormate', data})
+}

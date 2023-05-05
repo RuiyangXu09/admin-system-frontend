@@ -49,6 +49,11 @@ const router = createRouter({
             path: '/createRally',
             component: () => import('../views/CreateRally.vue')
         },
+
+        {
+            path: '/emailList',
+            component: () => import('../views/EmailList.vue')
+        }
     ],
 })
 

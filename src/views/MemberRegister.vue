@@ -119,7 +119,75 @@
                     </el-input>
                     </el-tooltip>
                 </el-form-item>
-                
+
+                <el-form-item prop="couples">
+                  <el-input v-model="register.couples" placeholder="Couples" type="number">
+                        <template #prepend>
+                          <el-icon><House /></el-icon>
+                        </template>
+                    </el-input>
+                </el-form-item>
+
+                <el-form-item prop="dateJoined">
+                  <el-tooltip
+                      class="box-item"
+                      effect="light"
+                      content="If No Joined Date, Please Input None"
+                      placement="top"
+                    >
+                    <el-input v-model="register.dateJoined" placeholder="Joined Date" clearable>
+                        <template #prepend>
+                          <el-icon><Timer /></el-icon>
+                        </template>
+                    </el-input>
+                  </el-tooltip>
+                </el-form-item>
+
+                <el-form-item prop="notes">
+                  <el-tooltip
+                      class="box-item"
+                      effect="light"
+                      content="If No any Notes, Please Input None"
+                      placement="top"
+                    >
+                    <el-input v-model="register.notes" placeholder="Notes" clearable>
+                        <template #prepend>
+                          <el-icon><ChatDotSquare /></el-icon>
+                        </template>
+                    </el-input>
+                  </el-tooltip>
+                </el-form-item>
+
+                <el-form-item prop="emailFormate">
+                  <el-input v-model="register.emailFormate" placeholder="Email Formate" clearable>
+                        <template #prepend>
+                          <el-icon><MessageBox /></el-icon>
+                        </template>
+                    </el-input>
+                </el-form-item>
+
+                <el-form-item prop="memberType">
+                  <el-select v-model="register.memberType" placeholder="Member Type">
+                    <el-option
+                      v-for="item in memberTypeOptions"
+                      :key="item.register"
+                      :label="item.label"
+                      :value="item.value"
+                    />
+                  </el-select>
+                </el-form-item>
+
+                <el-form-item prop="active">
+                  <el-select v-model="register.active" placeholder="Active">
+                    <el-option
+                      v-for="item in active"
+                      :key="item.register"
+                      :label="item.label"
+                      :value="item.value"
+                    />
+                  </el-select>
+                </el-form-item>
+
                 <!--home button-->
                 <el-button class="register_submit" @click="goHome">Cancel</el-button>
                 <!--register button-->
@@ -150,8 +218,26 @@ const register = reactive({
     address:'',
     emailAddress:'',
     birthday:'',
-    occupation:''
+    occupation:'',
+    couples: '',
+    dateJoined: '',
+    notes: '',
+    emailFormate: '',
+    memberType: '',
+    active: '',
 })
+
+const memberTypeOptions = reactive([
+    { value: 'R', label: 'Regular' },
+    { value: 'LM', label: 'Life Member' },
+    { value: 'AM', label: ' Associate Member' },
+    { value: 'P', label: 'Prospective' },
+]);
+
+const active = reactive([
+    { value: 'A', label: 'Active' },
+    { value: 'I', label: 'Inactive' },
+]);
 
 /**
  * register表单的数据检验
@@ -167,6 +253,10 @@ address:[{required: 'true', trigger: 'blur', message: 'Please input the Address'
 emailAddress:[{required: 'true', trigger: 'blur', message: 'Please input the Email Address'}],
 birthday:[{required: 'true', trigger: 'blur', message: 'Please input the Birthday'}],
 occupation:[{required: 'true', trigger: 'blur', message: 'Please input the Occupation'}],
+couples:[{required: 'true', trigger: 'blur', message: 'Please input a Number'}],
+dateJoined:[{required: 'true', trigger: 'blur', message: 'Please input a Date'}],
+notes:[{required: 'true', trigger: 'blur', message: 'Please input a Notes'}],
+emailFormate:[{required: 'true', trigger: 'blur', message: 'Please input a Email Formate'}],
 }
 
 /**
@@ -186,7 +276,7 @@ occupation:[{required: 'true', trigger: 'blur', message: 'Please input the Occup
 //注册的接口调用
 const getRegisterData = async() =>{
   //注册接口
-  const res = await getRegister({firstName: register.firstName, lastName: register.lastName, phoneNumber: register.phoneNumber, username: register.username, password: register.password, address: register.address, emailAddress: register.emailAddress, birthday: register.birthday, occupation: register.occupation})
+  const res = await getRegister({firstName: register.firstName, lastName: register.lastName, phoneNumber: register.phoneNumber, username: register.username, password: register.password, address: register.address, emailAddress: register.emailAddress, birthday: register.birthday, occupation: register.occupation, memberType: register.memberType, couples: register.couples, dateJoined: register.dateJoined, notes: register.notes, active: register.active, emailFormate: register.emailFormate})
   
   //当接口中的token传入成功 注册时打印message
   if (res?.message) {

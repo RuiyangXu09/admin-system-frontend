@@ -8,21 +8,16 @@
         <el-sub-menu index="1">
             <template #title>
                 <el-icon><Tools /></el-icon>
-                <span>Administer</span>
+                <span>Committee</span>
             </template>
-                <el-menu-item index="1-1" @click="goPhoto">Photo Gallery</el-menu-item>
+            <el-menu-item index="1-1" @click="goPhoto">Committee Email List</el-menu-item>
         </el-sub-menu>
   </el-menu>
 </template>
 
 <script setup>
 import router from "../../router/index"
-/**
- * click to photo page
- */
-const goPhoto = () =>{
-    router.push('/photo');
-}
+
 </script>
 
 <style lang="less" scoped>
