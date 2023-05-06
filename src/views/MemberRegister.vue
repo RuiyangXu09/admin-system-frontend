@@ -243,7 +243,7 @@ const active = reactive([
  * register表单的数据检验
  * 定义rules的检验 检查输入框是否为空
  */
- const rules = {
+const rules = {
 firstName:[{required: 'true', trigger: 'blur', message: 'Please input First Name'}],
 lastName:[{required: 'true', trigger: 'blur', message: 'Please input Last Name'}],
 phoneNumber:[{required: 'true', trigger: 'blur', message: 'Please input Phone Number'}],

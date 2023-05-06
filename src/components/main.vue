@@ -100,12 +100,12 @@ const memberList = computed(() =>{
 })
 
 /**
- * 编辑数据
+ * 编辑数据 修改这里
  */
 //member修改接口调用
 const changeMemberInfoData = async(query) =>{
-  const {firstName, lastName, phoneNumber, username, password, address, emailAddress, birthday, occupation, id} = query
-  const res = await changeMemberInfo({firstName, lastName, phoneNumber, username, password, address, emailAddress, birthday, occupation, id})
+  const {firstName, lastName, phoneNumber, username, password, address, emailAddress, birthday, occupation, couples, dateJoined, notes, emailFormate, memberType, active, id} = query
+  const res = await changeMemberInfo({firstName, lastName, phoneNumber, username, password, address, emailAddress, birthday, occupation, couples, dateJoined, notes, emailFormate, memberType, active, id})
   if (res?.message) {
     ElMessage({
       message: res.message,
@@ -138,7 +138,7 @@ const confirmClick = (val) =>{
     //控制弹窗的变量，点击cancel button触发 设置为false 关闭对话框
     isShowPop(false)
     //if判断 如果 memberIfo.message = val 赋值为相同变量，则不予修改 验证表单中所有变量
-  }else if (val.firstName !== memberIfo.message.firstName || val.lastName !== memberIfo.message.lastName || val.phoneNumber !== memberIfo.message.phoneNumber || val.username !== memberIfo.message.username || val.password !== memberIfo.message.password || val.address !== memberIfo.message.address || val.emailAddress !== memberIfo.message.emailAddress || val.birthday !== memberIfo.message.birthday || val.occupation !== memberIfo.message.occupation) {
+  }else if (val.firstName !== memberIfo.message.firstName || val.lastName !== memberIfo.message.lastName || val.phoneNumber !== memberIfo.message.phoneNumber || val.username !== memberIfo.message.username || val.password !== memberIfo.message.password || val.address !== memberIfo.message.address || val.emailAddress !== memberIfo.message.emailAddress || val.birthday !== memberIfo.message.birthday || val.occupation !== memberIfo.message.occupation || val.couples !== memberIfo.message.couples || val.dateJoined !== memberIfo.message.dateJoined || val.notes !== memberIfo.message.notes || val.emailFormate !== memberIfo.message.emailFormate || val.memberType !== memberIfo.message.memberType || val.active !== memberIfo.message.active) {
     //更改member info
     data.list.map((item) =>{
       //比较修改前后的数据 item 和 val
@@ -151,14 +151,19 @@ const confirmClick = (val) =>{
         item.address = val.address,
         item.emailAddress = val.emailAddress,
         item.birthday = val.birthday,
-        item.occupation = val.occupation
+        item.couples = val.couples,
+        item.dateJoined = val.dateJoined,
+        item.notes = val.notes,
+        item.emailFormate = val.emailFormate,
+        item.memberType = val.memberType,
+        item.active = val.active
       }
     })
 
     //关闭弹窗
     isShowPop(false);
     //修改接口的调用
-    changeMemberInfoData({firstName: val.firstName, lastName: val.lastName, phoneNumber: val.phoneNumber, username: val.username, username: val.username, password: val.password, address: val.address, emailAddress: val.emailAddress, birthday: val.birthday, occupation: val.occupation, id:val.id});
+    changeMemberInfoData({firstName: val.firstName, lastName: val.lastName, phoneNumber: val.phoneNumber, username: val.username, username: val.username, password: val.password, address: val.address, emailAddress: val.emailAddress, birthday: val.birthday, occupation: val.occupation, couples: val.couples, dateJoined: val.dateJoined, notes: val.notes, emailFormate: val.emailFormate, memberType: val.memberType, active: val.active, id:val.id});
   }else{
     ElMessage({
       showClose: true,
