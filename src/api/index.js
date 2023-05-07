@@ -118,3 +118,10 @@ export const updateRally = (data) =>{
 export const searchEmailList = (data) =>{
     return request ({method: 'get', url: '/api/v1/member/listFormate', data})
 }
+
+/**
+ * search email list api
+ */
+export const uploadBulletin = (data) =>{
+    return request ({method: 'post', url: '/api/v1/admin/uploadBulletin', data})
+}

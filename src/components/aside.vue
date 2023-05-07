@@ -39,7 +39,7 @@
                 <el-icon><Flag /></el-icon>
                 <span>Email List</span>
             </template>
-            <el-menu-item index="3-1" @click="emailList">Email Contact List</el-menu-item>
+            <el-menu-item index="4-1" @click="emailList">Email Contact List</el-menu-item>
         </el-sub-menu>
   </el-menu>
 </template>

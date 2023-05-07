@@ -1,6 +1,6 @@
 <template>
     <div>
-        <rallyTable :list="data.list" :previewClick="previewClick" :deleteHandle="deleteHandle" :closeHandle="closeHandle" :editClick="editClick" :openHandle="openHandle"/>
+        <rallyTable :list="data.list" :previewClick="previewClick" :deleteHandle="deleteHandle" :closeHandle="closeHandle" :editClick="editClick" :openHandle="openHandle" :uploadHandle="uploadHandle"/>
     </div>
     <rallyPreview :popShow="popShow" v-if="popShow" :message="rallyItemState.message" :cancelClick="cancelClick" />
     <rallyEdit :editShow="editShow" v-if="editShow" :item="editItemState.item" :cancelClick="cancelClick" :confirmClick="confirmClick"/>
@@ -11,7 +11,7 @@ import rallyTable from './rallyTable.vue';
 import rallyPreview from './rallyPreview.vue';
 import rallyEdit from './rallyEdit.vue';
 import { onMounted, reactive, ref } from 'vue';
-import { listRally, deleteRally, closeRally, openRally, updateRally } from '../../api/index';
+import { listRally, deleteRally, closeRally, openRally, updateRally, uploadBulletin } from '../../api/index';
 import { ElMessage } from 'element-plus';
 import emitter from "../../utils/eventBus";
 
@@ -196,6 +196,35 @@ const openHandle = (val) =>{
         openRallyData(val);
     }
 }
+
+/**
+ * upload report api 接收一个参数 formData
+ */
+const uploadReportData = async (formData) => {
+    //调用api 等待uploadBulletin完成，并将结果赋值给res
+    const res = await uploadBulletin(formData);
+    //如果接收到后端传递的message，提示upload success
+    if (res?.message) {
+        ElMessage({
+        message: res.message,
+        type: 'success',
+        });
+    }
+};
+
+//定义uploadHandle的异步函数，接收val
+const uploadHandle = async (val) => {
+    //如果val中包含rallyTable组件中包含id和file
+    if (val.id && val.file) {
+        //创建FormData
+        const formData = new FormData();
+        //将rallyTable组件中传递过来的file和id加入formData对象
+        formData.append('file', val.file);
+        formData.append('id', val.id);
+        //调用uploadReportData函数
+        await uploadReportData(formData);
+  }
+};
 </script>
 
 <style lang="less" scoped>

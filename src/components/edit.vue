@@ -39,7 +39,7 @@
 
           <el-form-item label="Birthday" prop="birthday">
             <!--input user name-->
-            <el-input v-model="editData.birthday" placeholder="birthday" />
+            <el-input v-model="editData.birthday" placeholder="Birthday" />
           </el-form-item>
 
           <el-form-item label="Occupation" prop="occupation">
