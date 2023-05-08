@@ -36,7 +36,7 @@
         <!--email list menu-->
         <el-sub-menu index="4">
             <template #title>
-                <el-icon><Flag /></el-icon>
+                <el-icon><Message /></el-icon>
                 <span>Email List</span>
             </template>
             <el-menu-item index="4-1" @click="emailList">Email Contact List</el-menu-item>

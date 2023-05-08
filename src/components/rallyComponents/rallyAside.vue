@@ -4,15 +4,33 @@
             <img src="../../assets/ICON.png">
             <span>Akarana Administer System</span>
         </div>
-        <!--rally管理菜单-->
+
         <el-sub-menu index="1">
+            <template #title>
+                <el-icon><Tools /></el-icon>
+                <span>Administer</span>
+            </template>
+            <el-menu-item index="1-1" @click="adminInfo">Administer Setting</el-menu-item>
+        </el-sub-menu>
+        
+        <!--rally管理菜单-->
+        <el-sub-menu index="2">
             <template #title>
                 <el-icon><Flag /></el-icon>
                 <span>Rally</span>
             </template>
-            <el-menu-item index="1-1" @click="createRally">Create Rally</el-menu-item>
-            <el-menu-item index="1-2" @click="rallyStatusHandle('open')">Open Rally</el-menu-item>
-            <el-menu-item index="1-3" @click="rallyStatusHandle('close')">Closed Rally</el-menu-item>
+            <el-menu-item index="2-1" @click="createRally">Create Rally</el-menu-item>
+            <el-menu-item index="2-2" @click="rallyStatusHandle('open')">Open Rally</el-menu-item>
+            <el-menu-item index="2-3" @click="rallyStatusHandle('close')">Closed Rally</el-menu-item>
+        </el-sub-menu>
+
+        <!--email list menu-->
+        <el-sub-menu index="3">
+            <template #title>
+                <el-icon><Message /></el-icon>
+                <span>Email List</span>
+            </template>
+            <el-menu-item index="3-1" @click="emailList">Email Contact List</el-menu-item>
         </el-sub-menu>
   </el-menu>
 </template>
@@ -32,6 +50,20 @@ import emitter from "../../utils/eventBus";
  */
 const rallyStatusHandle = (type) =>{
     emitter.emit('status', type)
+}
+
+/**
+ * click 事件 跳转至 admin info page
+ */
+ const adminInfo = () =>{
+    router.push('/admin')
+}
+
+/**
+ * click to email list page
+ */
+ const emailList = () =>{
+    router.push('/emailList')
 }
 </script>
 

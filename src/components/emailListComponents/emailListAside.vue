@@ -8,9 +8,19 @@
         <el-sub-menu index="1">
             <template #title>
                 <el-icon><Tools /></el-icon>
-                <span>Committee</span>
+                <span>Administer</span>
             </template>
-            <el-menu-item index="1-1" @click="goPhoto">Committee Email List</el-menu-item>
+            <el-menu-item index="1-1" @click="adminInfo">Administer Setting</el-menu-item>
+            <el-menu-item index="1-2" @click="photo">Photo Gallery</el-menu-item>
+        </el-sub-menu>
+
+        <!--rally管理菜单-->
+        <el-sub-menu index="2">
+            <template #title>
+                <el-icon><Flag /></el-icon>
+                <span>Rally</span>
+            </template>
+            <el-menu-item index="2-1" @click="rally">Rally Setting</el-menu-item>
         </el-sub-menu>
   </el-menu>
 </template>
@@ -18,6 +28,26 @@
 <script setup>
 import router from "../../router/index"
 
+/**
+ * click 事件 跳转至 admin info page
+ */
+ const adminInfo = () =>{
+    router.push('/admin')
+}
+
+/**
+ * click to photo page
+ */
+const photo = () =>{
+    router.push('/photo')
+}
+
+/**
+ * click to rally page
+ */
+ const rally = () =>{
+    router.push('/rally')
+}
 </script>
 
 <style lang="less" scoped>

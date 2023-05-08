@@ -12,6 +12,24 @@
             </template>
                 <el-menu-item index="1-1" @click="goPhoto">Photo Gallery</el-menu-item>
         </el-sub-menu>
+
+        <!--rally管理菜单-->
+        <el-sub-menu index="2">
+            <template #title>
+                <el-icon><Flag /></el-icon>
+                <span>Rally</span>
+            </template>
+            <el-menu-item index="2-1" @click="rally">Rally Setting</el-menu-item>
+        </el-sub-menu>
+
+        <!--email list menu-->
+        <el-sub-menu index="3">
+            <template #title>
+                <el-icon><Message /></el-icon>
+                <span>Email List</span>
+            </template>
+            <el-menu-item index="3-1" @click="emailList">Email Contact List</el-menu-item>
+        </el-sub-menu>
   </el-menu>
 </template>
 
@@ -22,6 +40,20 @@ import router from "../../router/index"
  */
 const goPhoto = () =>{
     router.push('/photo');
+}
+
+/**
+ * click to rally page
+ */
+ const rally = () =>{
+    router.push('/rally')
+}
+
+/**
+ * click to email list page
+ */
+ const emailList = () =>{
+    router.push('/emailList')
 }
 </script>
 
