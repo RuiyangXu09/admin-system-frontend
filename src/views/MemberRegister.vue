@@ -166,8 +166,8 @@
                     </el-input>
                 </el-form-item>
 
-                <el-form-item prop="memberType">
-                  <el-select v-model="register.memberType" placeholder="Member Type">
+                <el-form-item prop="memberType" class="el-form-item">
+                  <el-select v-model="register.memberType" placeholder="Member Type" class="el-select">
                     <el-option
                       v-for="item in memberTypeOptions"
                       :key="item.register"
@@ -363,4 +363,12 @@ const goHome = () =>{
       }
     }
   }
+.el-form-item {
+  display: flex;
+  justify-content: center;
+}
+
+.el-select {
+    width: 100%;
+}
 </style>
