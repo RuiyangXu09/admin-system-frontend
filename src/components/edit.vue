@@ -19,7 +19,14 @@
 
           <el-form-item label="User Name" prop="username">
             <!--input user name-->
-            <el-input v-model="editData.username" placeholder="User Name" />
+            <el-tooltip
+              class="box-item"
+              effect="light"
+              content="Do not enter duplicate User Name"
+              placement="top"
+            >
+              <el-input v-model="editData.username" placeholder="User Name" />
+            </el-tooltip>
           </el-form-item>
 
           <el-form-item label="Pass Word" prop="password">
