@@ -36,7 +36,7 @@ service.interceptors.response.use((res) => {
         return res.data
     }else {
         ElMessage({
-            message: 'Failed',
+            message: res.data.message,
             type: 'warning'
         });
     }
