@@ -10,7 +10,7 @@ const host = ENV === 'development'?'http://127.0.0.1:3000':''
 const service = axios.create({
     baseURL: host,
     //请求时间超过3s 报错
-    timeout: '3000',
+    timeout: '10000',
 })
 
 /**

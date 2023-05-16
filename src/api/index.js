@@ -120,8 +120,15 @@ export const searchEmailList = (data) =>{
 }
 
 /**
- * search email list api
+ * search email list by different conditions api
  */
 export const uploadBulletin = (data) =>{
     return request ({method: 'post', url: '/api/v1/admin/uploadBulletin', data})
+}
+
+/**
+ * search all email list api
+ */
+export const searchAllEmailList = (data) =>{
+    return request ({method: 'get', url: '/api/v1/member/listAllEmailFormate', data})
 }

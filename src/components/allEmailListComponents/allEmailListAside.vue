@@ -29,7 +29,7 @@
                 <el-icon><Message /></el-icon>
                 <span>Email List</span>
             </template>
-            <el-menu-item index="3-1" @click="allEmailList">All Email List</el-menu-item>
+            <el-menu-item index="3-1" @click="searchEmailListByConditions">Search Email List By Conditions</el-menu-item>
         </el-sub-menu>
   </el-menu>
 </template>
@@ -61,8 +61,8 @@ const photo = () =>{
 /**
  * click to rally page
  */
- const allEmailList = () =>{
-    router.push('/AllEmailList')
+ const searchEmailListByConditions = () =>{
+    router.push('/emailList')
 }
 </script>
 

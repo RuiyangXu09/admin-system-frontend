@@ -53,6 +53,11 @@ const router = createRouter({
         {
             path: '/emailList',
             component: () => import('../views/EmailList.vue')
+        },
+
+        {
+            path: '/AllEmailList',
+            component: () => import('../views/AllEmailList.vue')
         }
     ],
 })

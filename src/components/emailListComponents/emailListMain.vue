@@ -11,7 +11,7 @@
         />
       </el-select>
 
-      <el-select v-model="data.active" placeholder="Active">
+      <el-select v-model="data.active" placeholder="Status">
         <el-option
           v-for="item in active"
           :key="item.data"
@@ -36,7 +36,7 @@
 
 <script setup>
 import { onMounted, reactive, ref } from 'vue';
-import { searchEmailList } from '../../api/index';
+import { searchEmailList, searchAllEmailList } from '../../api/index';
 import { Search } from '@element-plus/icons-vue'
 //创建一个ref以存储要显示的email list字符串
 const displayEmailList = ref(null);
@@ -75,7 +75,6 @@ const searchByEmailList = () => {
 const getEmailListData = async (query) => {
   const res = await searchEmailList(query);
 
-  console.log(res);
   //将获取到的email list存储在 data.list 中
   data.list = res?.data.list;
 
