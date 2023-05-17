@@ -20,7 +20,7 @@ import emitter from "../../utils/eventBus";
  */
 const data = reactive({
     list: [],
-    status: 'open'
+    status: 'Upcoming'
 })
 
 /**

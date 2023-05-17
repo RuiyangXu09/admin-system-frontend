@@ -20,8 +20,8 @@
                 <span>Rally</span>
             </template>
             <el-menu-item index="2-1" @click="createRally">Create Rally</el-menu-item>
-            <el-menu-item index="2-2" @click="rallyStatusHandle('open')">Open Rally</el-menu-item>
-            <el-menu-item index="2-3" @click="rallyStatusHandle('close')">Closed Rally</el-menu-item>
+            <el-menu-item index="2-2" @click="rallyStatusHandle('Upcoming')">Open Rally</el-menu-item>
+            <el-menu-item index="2-3" @click="rallyStatusHandle('Past')">Closed Rally</el-menu-item>
         </el-sub-menu>
 
         <!--email list menu-->
