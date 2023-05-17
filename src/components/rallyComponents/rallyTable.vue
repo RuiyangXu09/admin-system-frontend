@@ -16,10 +16,6 @@
 
             </el-table-column>
 
-            <!-- <el-table-column prop="subTitle" label="Sub Title">
-
-            </el-table-column> -->
-
             <el-table-column prop="time" label="Time">
 
             </el-table-column>

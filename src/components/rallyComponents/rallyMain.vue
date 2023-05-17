@@ -78,8 +78,8 @@ const cancelClick = (val) =>{
  */
 //编辑rally的api调用
 const updateRallyData = async(query) =>{
-    const {mainTitle, subTitle, time, address, content, id} = query;
-    const res = await updateRally({mainTitle, subTitle, time, address, content, id});
+    const {mainTitle, subTitle, time, address, content, bulletin, album, id} = query;
+    const res = await updateRally({mainTitle, subTitle, time, address, content, bulletin, album, id});
     if (res?.message) {
         ElMessage({
         message: res.message,
@@ -108,7 +108,7 @@ const confirmClick = (val) =>{
     if (val === 'cancel') {
         //如果点击cancel，关闭弹窗
         isEditPop(false);
-    }else if (val.mainTitle !== editItemState.item.mainTitle || val.subTitle !== editItemState.item.subTitle || val.time !== editItemState.item.time || val.address !== editItemState.item.address || val.content !== editItemState.item.content) {
+    }else if (val.mainTitle !== editItemState.item.mainTitle || val.subTitle !== editItemState.item.subTitle || val.time !== editItemState.item.time || val.address !== editItemState.item.address || val.content !== editItemState.item.content || val.bulletin !== editItemState.item.bulletin || val.album !== editItemState.item.album) {
         data.list.map((item) =>{
             //修改对应的表格中的数据
             if (item.id === val.id) {
@@ -117,12 +117,14 @@ const confirmClick = (val) =>{
                 item.time = val.time
                 item.address = val.address
                 item.content = val.content
+                item.bulletin = val.bulletin
+                item.album = val.album
             }
         })
         //关闭弹窗
         isEditPop(false);
         //修改接口的调用
-        updateRallyData({mainTitle: val.mainTitle, subTitle: val.subTitle, time: val.time, address: val.address, content: val.content, id: val.id})
+        updateRallyData({mainTitle: val.mainTitle, subTitle: val.subTitle, time: val.time, address: val.address, content: val.content, bulletin: val.bulletin, album: val.album, id: val.id})
     }else{
         ElMessage({
         showClose: true,

@@ -5,7 +5,7 @@
             <el-input v-model="editRally.mainTitle" />
           </el-form-item>
 
-          <el-form-item label="Sub Title" prop="subTitle">
+          <el-form-item label="Sub Title" prop="subTitle" required>
             <el-input v-model="editRally.subTitle" />
           </el-form-item>
 
@@ -19,6 +19,14 @@
 
           <el-form-item label="Content" prop="content" required>
             <el-input v-model="editRally.content" type="textarea"/>
+          </el-form-item>
+
+          <el-form-item label="Bulletin" prop="bulletin" required>
+            <el-input v-model="editRally.bulletin"/>
+          </el-form-item>
+          
+          <el-form-item label="Album" prop="album" required>
+            <el-input v-model="editRally.album"/>
           </el-form-item>
 
           <!--两个button-->
@@ -44,6 +52,8 @@ const editRally = reactive({
     time: item.time,
     address: item.address,
     content: item.content,
+    bulletin: item.bulletin,
+    album: item.album,
     id: item.id
 })
 
@@ -56,7 +66,7 @@ const submitForm = async(formEl) =>{
     if (!formEl) return;
     await formEl.validate((valid, fields) =>{
         if (valid) {
-            confirmClick({mainTitle: editRally.mainTitle, subTitle:editRally.subTitle, time: editRally.time, address: editRally.address, content: editRally.content, id: editRally.id})
+            confirmClick({mainTitle: editRally.mainTitle, subTitle:editRally.subTitle, time: editRally.time, address: editRally.address, content: editRally.content, bulletin: editRally.bulletin, album: editRally.album, id: editRally.id})
         }else{
             console.log('Error Submit', fields);
         }
