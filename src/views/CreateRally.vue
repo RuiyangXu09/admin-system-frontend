@@ -53,6 +53,14 @@
                     </el-input>
                 </el-form-item>
 
+                <el-form-item prop="album">
+                    <el-input v-model="createRally.album" placeholder="Photo Album URL" clearable>
+                        <template #prepend>
+                          <el-icon><Picture /></el-icon>
+                        </template>
+                    </el-input>
+                </el-form-item>
+
                 <el-form-item prop="content">
                     <el-input v-model="createRally.content" placeholder="Content" type="textarea" clearable />
                 </el-form-item>
@@ -105,6 +113,7 @@ const createRally = reactive({
     address:'',
     mapUrl: '',
     bulletin: '',
+    album: '',
     image: null,
 })
 
@@ -122,6 +131,7 @@ const rules = {
     mainTitle:[{required: 'true', trigger: 'blur', message: 'Please input main title'}],
     time:[{required: 'true', trigger: 'blur', message: 'Please input precise time'}],
     address:[{required: 'true', trigger: 'blur', message: 'Please input correct address'}],
+    mapUrl:[{required: 'true', trigger: 'blur', message: 'Please input Google Map URL'}],
     content:[{required: 'true', trigger: 'blur', message: 'Please input details of the rally'}]
 }
 
@@ -150,6 +160,7 @@ const getRallyData = async() => {
   formData.append('address', createRally.address);
   formData.append('mapUrl', createRally.mapUrl);
   formData.append('bulletin', createRally.bulletin);
+  formData.append('album', createRally.album);
   //将所选图片（File 对象）添加到FormData对象中
   formData.append('image', createRally.image);
 

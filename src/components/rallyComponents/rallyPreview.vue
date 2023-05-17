@@ -37,6 +37,12 @@
             {{ rallyDetails.bulletin }}
           </div>
         </el-descriptions-item>
+
+        <el-descriptions-item label="Album: ">
+          <div>
+            {{ rallyDetails.album }}
+          </div>
+        </el-descriptions-item>
       </el-descriptions>
       
       <el-descriptions :model="rallyDetails" class="font-style">
@@ -77,7 +83,8 @@ const rallyDetails = reactive({
     status: message.status,
     address: message.address,
     mapUrl: message.mapUrl,
-    bulletin: message.bulletin
+    bulletin: message.bulletin,
+    album: message.album
 })
 </script>
 
