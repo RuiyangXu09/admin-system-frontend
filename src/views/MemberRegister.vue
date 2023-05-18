@@ -67,7 +67,7 @@
                       content="If No Address Info, Please Input None"
                       placement="top"
                     >
-                    <el-input v-model="register.address" placeholder="Address" clearable>
+                    <el-input ref="googleInputRef" v-model="register.address" placeholder="Address" clearable>
                         <template #prepend>
                             <el-icon><House /></el-icon>
                         </template>
@@ -199,12 +199,13 @@
 
 <script setup>
 import router from '../router/index';
-import { reactive, ref } from "vue";
+import { reactive, ref, onMounted } from "vue";
 import { getRegister } from '../api/index';
 /**
  * 初始的ref
  */
 const ref_form = ref(null);
+const googleInputRef = ref(null);
 
 /**
  * register表单的数据声明
@@ -293,6 +294,25 @@ const getRegisterData = async() =>{
 const goHome = () =>{
     router.push('/home');
 }
+
+//Add address autofill
+onMounted(() => {
+  //创建一个自动补全对象
+  const autocomplete = new google.maps.places.Autocomplete(
+    googleInputRef.value.$el.querySelector('input'), {
+      types: ['address'],
+      //限制地址为nz
+      componentRestrictions: { country: "nz" }
+  });
+
+  //当用户选择一个自动完成建议后，触发place_changed事件
+  autocomplete.addListener('place_changed', () => {
+    //获取选择的地址
+    const place = autocomplete.getPlace();
+    //将用户选择的地点的格式化地址存储到register.address中。
+    register.address = place.formatted_address;
+  });
+});
 </script>
 
 <style lang="less" scoped>
