@@ -2,11 +2,11 @@
     <div class="table">
         <el-table :data="list" border stripe style="width: 1390px; height: 100%;">
             <!--first colum-->
-            <el-table-column prop="id" label="ID" width="80">
+            <el-table-column prop="rallyID" label="Rally ID" width="120">
 
             </el-table-column>
 
-            <el-table-column prop="image" label="Cover Image" width="200">
+            <el-table-column prop="image" label="Cover Image" width="125">
                 <template #default="scope">
                     <img :src="scope.row.image" style="width: 100px; height: 100px;">
                 </template>

@@ -2,7 +2,13 @@
   <el-dialog title="Rally Details" modelValue="popShow" width="60%" center :show-close="false">
     <el-form :model="rallyDetails">
       <el-descriptions :model="rallyDetails" class="font-style">
-        <el-descriptions-item label="Main Title: " prop="mainTitle">
+        <el-descriptions-item label="Rally ID: ">
+          <div>
+            {{ rallyDetails.rallyID }}
+          </div>
+        </el-descriptions-item>
+
+        <el-descriptions-item label="Main Title: ">
           <div>
             {{ rallyDetails.mainTitle }}
           </div>
@@ -31,20 +37,24 @@
             {{ rallyDetails.address }}
           </div>
         </el-descriptions-item>
+      </el-descriptions>
 
+      <el-descriptions :model="rallyDetails" class="font-style">
         <el-descriptions-item label="Bulletin: ">
           <div>
             {{ rallyDetails.bulletin }}
           </div>
         </el-descriptions-item>
+      </el-descriptions>
 
+      <el-descriptions :model="rallyDetails" class="font-style">
         <el-descriptions-item label="Album: ">
           <div>
             {{ rallyDetails.album }}
           </div>
         </el-descriptions-item>
       </el-descriptions>
-      
+
       <el-descriptions :model="rallyDetails" class="font-style">
         <el-descriptions-item label="Content: ">
           <div>
@@ -76,15 +86,16 @@ import router from '../../router';
 const {popShow, message, cancelClick} = defineProps(['popShow', 'message', 'cancelClick']);
 
 const rallyDetails = reactive({
-    mainTitle: message.mainTitle,
-    subTitle: message.subTitle,
-    content: message.content,
-    time: message.time,
-    status: message.status,
-    address: message.address,
-    mapUrl: message.mapUrl,
-    bulletin: message.bulletin,
-    album: message.album
+  rallyID: message.rallyID,
+  mainTitle: message.mainTitle,
+  subTitle: message.subTitle,
+  content: message.content,
+  time: message.time,
+  status: message.status,
+  address: message.address,
+  mapUrl: message.mapUrl,
+  bulletin: message.bulletin,
+  album: message.album
 })
 </script>
 

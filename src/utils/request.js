@@ -41,7 +41,7 @@ service.interceptors.response.use((res) => {
         });
     }
 
-    if (message === 'Authorization failed') {
+    if (message === 'Authorized failed') {
         router.push('/login')
     }
 });

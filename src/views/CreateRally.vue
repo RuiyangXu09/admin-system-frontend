@@ -5,6 +5,14 @@
             <h1 class="h1">Akarana Club Rally Register</h1>
             <el-form :model="createRally" :rules="rules" ref="ref_form">
                 <!--rally 信息输入-->
+                <el-form-item prop="rallyID">
+                  <el-input v-model="createRally.rallyID" placeholder="Rally ID#" clearable>
+                        <template #prepend>
+                          <el-icon><PriceTag /></el-icon>
+                        </template>
+                    </el-input>
+                </el-form-item>
+
                 <el-form-item prop="mainTitle">
                   <el-input v-model="createRally.mainTitle" placeholder="Main Title" clearable>
                         <template #prepend>
@@ -106,15 +114,16 @@ const ref_form = ref(null);
  * rally表单的数据声明
  */
 const createRally = reactive({
-    mainTitle:'',
-    subTitle:'',
-    content:'',
-    time:'',
-    address:'',
-    mapUrl: '',
-    bulletin: '',
-    album: '',
-    image: null,
+  rallyID: '',
+  mainTitle:'',
+  subTitle:'',
+  content:'',
+  time:'',
+  address:'',
+  mapUrl: '',
+  bulletin: '',
+  album: '',
+  image: null,
 })
 
 //创建一个onFileChange方法，是位于el-upload组件中的@change事件的处理程序，它在用户选择一个文件时被调用
@@ -128,11 +137,12 @@ const onFileChange = (file) => {
  * 表单的数据检验，定义rules，检查输入框是否为空
  */
 const rules = {
-    mainTitle:[{required: 'true', trigger: 'blur', message: 'Please input main title'}],
-    time:[{required: 'true', trigger: 'blur', message: 'Please input precise time'}],
-    address:[{required: 'true', trigger: 'blur', message: 'Please input correct address'}],
-    mapUrl:[{required: 'true', trigger: 'blur', message: 'Please input Google Map URL'}],
-    content:[{required: 'true', trigger: 'blur', message: 'Please input details of the rally'}]
+  rallyID:[{required: 'true', trigger: 'blur', message: 'Please input rally ID'}],
+  mainTitle:[{required: 'true', trigger: 'blur', message: 'Please input main title'}],
+  time:[{required: 'true', trigger: 'blur', message: 'Please input precise time'}],
+  address:[{required: 'true', trigger: 'blur', message: 'Please input correct address'}],
+  mapUrl:[{required: 'true', trigger: 'blur', message: 'Please input Google Map URL'}],
+  content:[{required: 'true', trigger: 'blur', message: 'Please input details of the rally'}]
 }
 
 /**
@@ -153,6 +163,7 @@ const getRallyData = async() => {
   //创建一个新的FormData对象
   const formData = new FormData();
   //将表单中的各个字段添加到对象中
+  formData.append('rallyID', createRally.rallyID);
   formData.append('mainTitle', createRally.mainTitle);
   formData.append('subTitle', createRally.subTitle);
   formData.append('content', createRally.content);
