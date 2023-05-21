@@ -31,6 +31,14 @@
             </template>
             <el-menu-item index="3-1" @click="allEmailList">All Email List</el-menu-item>
         </el-sub-menu>
+
+        <!--google drive forms folder-->
+        <el-menu-item index="4" @click="goToForms">
+            <template #title>
+                <el-icon><Document /></el-icon>
+                <span>Forms</span>
+            </template>
+        </el-menu-item>
   </el-menu>
 </template>
 
@@ -63,6 +71,13 @@ const photo = () =>{
  */
  const allEmailList = () =>{
     router.push('/AllEmailList')
+}
+
+/**
+ * click to google drive forms folder
+ */
+ const goToForms = () =>{
+    window.open("https://drive.google.com/drive/folders/1PDUhwLWgVRKwISJ0e5AIMvDlIOZfyuee?usp=sharing");
 }
 </script>
 

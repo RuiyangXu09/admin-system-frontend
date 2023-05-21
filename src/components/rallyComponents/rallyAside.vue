@@ -32,6 +32,13 @@
             </template>
             <el-menu-item index="3-1" @click="emailList">Email Contact List</el-menu-item>
         </el-sub-menu>
+
+        <el-menu-item index="4" @click="goToForms">
+            <template #title>
+                <el-icon><Document /></el-icon>
+                <span>Forms</span>
+            </template>
+        </el-menu-item>
   </el-menu>
 </template>
 
@@ -64,6 +71,13 @@ const rallyStatusHandle = (type) =>{
  */
  const emailList = () =>{
     router.push('/emailList')
+}
+
+/**
+ * click to google drive forms folder
+ */
+ const goToForms = () =>{
+    window.open("https://drive.google.com/drive/folders/1PDUhwLWgVRKwISJ0e5AIMvDlIOZfyuee?usp=sharing");
 }
 </script>
 

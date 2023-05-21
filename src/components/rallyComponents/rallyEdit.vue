@@ -29,6 +29,10 @@
             <el-input v-model="editRally.album"/>
           </el-form-item>
 
+          <el-form-item label="Map Url" prop="mapUrl" required>
+            <el-input v-model="editRally.mapUrl"/>
+          </el-form-item>
+
           <!--两个button-->
           <el-form-item>
                 <el-button @click="confirmClick('cancel')">Cancel</el-button>
@@ -54,6 +58,7 @@ const editRally = reactive({
     content: item.content,
     bulletin: item.bulletin,
     album: item.album,
+    mapUrl: item.mapUrl,
     id: item.id
 })
 
@@ -66,7 +71,7 @@ const submitForm = async(formEl) =>{
     if (!formEl) return;
     await formEl.validate((valid, fields) =>{
         if (valid) {
-            confirmClick({mainTitle: editRally.mainTitle, subTitle:editRally.subTitle, time: editRally.time, address: editRally.address, content: editRally.content, bulletin: editRally.bulletin, album: editRally.album, id: editRally.id})
+            confirmClick({mainTitle: editRally.mainTitle, subTitle:editRally.subTitle, time: editRally.time, address: editRally.address, content: editRally.content, bulletin: editRally.bulletin, album: editRally.album, mapUrl: editRally.mapUrl, id: editRally.id})
         }else{
             console.log('Error Submit', fields);
         }

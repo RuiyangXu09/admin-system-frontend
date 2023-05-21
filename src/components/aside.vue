@@ -11,7 +11,7 @@
                 <el-icon><User /></el-icon>
                 <span>Club Members</span>
             </template>
-                <el-menu-item index="1-1" @click="register">Member Information Register</el-menu-item>
+                <el-menu-item index="1-1" @click="register">Register New</el-menu-item>
         </el-sub-menu>
 
         <!--管理员管理菜单-->
@@ -41,6 +41,13 @@
             </template>
             <el-menu-item index="4-1" @click="emailList">Email Contact List</el-menu-item>
         </el-sub-menu>
+
+        <el-menu-item index="5" @click="goToForms">
+            <template #title>
+                <el-icon><Document /></el-icon>
+                <span>Forms</span>
+            </template>
+        </el-menu-item>
   </el-menu>
 </template>
 
@@ -79,6 +86,13 @@ const rally = () =>{
  */
  const emailList = () =>{
     router.push('/emailList')
+}
+
+/**
+ * click to google drive forms folder
+ */
+const goToForms = () =>{
+    window.open("https://drive.google.com/drive/folders/1PDUhwLWgVRKwISJ0e5AIMvDlIOZfyuee?usp=sharing");
 }
 </script>
 

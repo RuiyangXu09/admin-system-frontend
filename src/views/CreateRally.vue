@@ -74,7 +74,7 @@
                   @change="onFileChange"
                 >
                   <template #trigger>
-                    <el-button type="primary">select file</el-button>
+                    <el-button type="primary">Select Photo</el-button>
                   </template>
 
                   <template #tip>
@@ -211,7 +211,7 @@ const goHome = () =>{
     height: 100%;
     .backGroundImage{
       height: 100%;
-      background-image: url("../assets/caravan.jpg");
+      background-image: url("../assets/akarana.png");
       background-repeat: no-repeat;
       background-size: 100%;
       background-position: 50% 50%;
