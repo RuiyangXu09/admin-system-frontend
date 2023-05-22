@@ -74,6 +74,7 @@ router.beforeEach((to, from, next) =>{
                 message: 'You have to login first.',
                 type: 'warning',
               })
+              router.push('/login');
         }
     }else{
         next()
