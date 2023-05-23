@@ -92,12 +92,12 @@ const inputValue = ref('');
 /**
  * 搜索的逻辑
  */
-const memberList = computed(() =>{
-  return data.list?.filter((item) =>{
-    //通过member的first name搜索，判断搜索框input value中的值大于等于0时，有值存在 没有返回-1
-    return item.firstName.indexOf(inputValue.value) >= 0;
-  })
-})
+ const memberList = computed(() => {
+  return data.list?.filter((item) => {
+    // 将成员的firstName和搜索框的输入值都转换为小写后比较
+    return item.firstName.toLowerCase().indexOf(inputValue.value.toLowerCase()) >= 0;
+  });
+});
 
 /**
  * 编辑数据 修改这里
