@@ -1,7 +1,7 @@
 <template>
     <el-menu class="el-menu-vertical-demo" active-text-color="#FFFFFF" background-color="#FF9933" text-color="#000000" unique-opened="true">
         <div class="akarana_icon">
-            <img src="../../assets/ICON.png">
+            <img src="../../assets/akarana.png">
             <span>Akarana Administer System</span>
         </div>
 
@@ -20,8 +20,8 @@
                 <span>Rally</span>
             </template>
             <el-menu-item index="2-1" @click="createRally">Create Rally</el-menu-item>
-            <el-menu-item index="2-2" @click="rallyStatusHandle('Upcoming')">Open Rally</el-menu-item>
-            <el-menu-item index="2-3" @click="rallyStatusHandle('Past')">Closed Rally</el-menu-item>
+            <el-menu-item index="2-2" @click="rallyStatusHandle('Upcoming')">Upcoming Rally</el-menu-item>
+            <el-menu-item index="2-3" @click="rallyStatusHandle('Past')">Past Rally</el-menu-item>
         </el-sub-menu>
 
         <!--email list menu-->
@@ -37,6 +37,13 @@
             <template #title>
                 <el-icon><Document /></el-icon>
                 <span>Forms</span>
+            </template>
+        </el-menu-item>
+
+        <el-menu-item index="5" @click="goToPhotoGallery">
+            <template #title>
+                <el-icon><PictureRounded /></el-icon>
+                <span>Photo Gallery</span>
             </template>
         </el-menu-item>
   </el-menu>
@@ -78,6 +85,13 @@ const rallyStatusHandle = (type) =>{
  */
  const goToForms = () =>{
     window.open("https://drive.google.com/drive/folders/1PDUhwLWgVRKwISJ0e5AIMvDlIOZfyuee?usp=sharing");
+}
+
+/**
+ * click to google photo
+ */
+ const goToPhotoGallery = () =>{
+    window.open("https://photos.app.goo.gl/c6zGfunJyCXDSULH7");
 }
 </script>
 

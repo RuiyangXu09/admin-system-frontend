@@ -1,40 +1,38 @@
 <template>
     <el-menu class="el-menu-vertical-demo" active-text-color="#FFFFFF" background-color="#FF9933" text-color="#000000" unique-opened="true">
         <div class="akarana_icon">
-            <img src="../../assets/ICON.png">
+            <img src="../../assets/akarana.png">
             <span>Akarana Administer System</span>
         </div>
-        <!--管理员管理菜单-->
-        <el-sub-menu index="1">
-            <template #title>
-                <el-icon><Tools /></el-icon>
-                <span>Administer</span>
-            </template>
-                <el-menu-item index="1-1" @click="goPhoto">Photo Gallery</el-menu-item>
-        </el-sub-menu>
-
         <!--rally管理菜单-->
-        <el-sub-menu index="2">
+        <el-sub-menu index="1">
             <template #title>
                 <el-icon><Flag /></el-icon>
                 <span>Rally</span>
             </template>
-            <el-menu-item index="2-1" @click="rally">Rally Setting</el-menu-item>
+            <el-menu-item index="1-1" @click="rally">All Rallies</el-menu-item>
         </el-sub-menu>
 
         <!--email list menu-->
-        <el-sub-menu index="3">
+        <el-sub-menu index="2">
             <template #title>
                 <el-icon><Message /></el-icon>
                 <span>Email List</span>
             </template>
-            <el-menu-item index="3-1" @click="emailList">Email Contact List</el-menu-item>
+            <el-menu-item index="2-1" @click="emailList">Email Contact List</el-menu-item>
         </el-sub-menu>
 
-        <el-menu-item index="4" @click="goToForms">
+        <el-menu-item index="3" @click="goToForms">
             <template #title>
                 <el-icon><Document /></el-icon>
                 <span>Forms</span>
+            </template>
+        </el-menu-item>
+
+        <el-menu-item index="4" @click="goToPhotoGallery">
+            <template #title>
+                <el-icon><PictureRounded /></el-icon>
+                <span>Photo Gallery</span>
             </template>
         </el-menu-item>
   </el-menu>
@@ -68,6 +66,13 @@ const goPhoto = () =>{
  */
  const goToForms = () =>{
     window.open("https://drive.google.com/drive/folders/1PDUhwLWgVRKwISJ0e5AIMvDlIOZfyuee?usp=sharing");
+}
+
+/**
+ * click to google photo
+ */
+ const goToPhotoGallery = () =>{
+    window.open("https://photos.app.goo.gl/c6zGfunJyCXDSULH7");
 }
 </script>
 

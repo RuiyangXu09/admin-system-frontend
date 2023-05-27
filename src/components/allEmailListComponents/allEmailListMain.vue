@@ -17,7 +17,7 @@ const getAllEmailListData = async(query) =>{
   const res = await searchAllEmailList(query);
 
   // 直接获取 "results" 对应的字符串
-  data.list = res?.data?.list["0"]?.results || "";
+  data.list = res?.data?.list;
 }
 
 onMounted(() => {

@@ -1,7 +1,7 @@
 <template>
     <el-menu class="el-menu-vertical-demo" active-text-color="#FFFFFF" background-color="#FF9933" text-color="#000000" unique-opened="true">
         <div class="akarana_icon">
-            <img src="../../assets/ICON.png">
+            <img src="../../assets/akarana.png">
             <span>Akarana Administer System</span>
         </div>
         <!--管理员管理菜单-->
@@ -11,7 +11,6 @@
                 <span>Administer</span>
             </template>
             <el-menu-item index="1-1" @click="adminInfo">Administer Setting</el-menu-item>
-            <el-menu-item index="1-2" @click="photo">Photo Gallery</el-menu-item>
         </el-sub-menu>
 
         <!--rally管理菜单-->
@@ -20,7 +19,7 @@
                 <el-icon><Flag /></el-icon>
                 <span>Rally</span>
             </template>
-            <el-menu-item index="2-1" @click="rally">Rally Setting</el-menu-item>
+            <el-menu-item index="2-1" @click="rally">All Rallies</el-menu-item>
         </el-sub-menu>
 
         <!--email list管理菜单-->
@@ -31,6 +30,20 @@
             </template>
             <el-menu-item index="3-1" @click="searchEmailListByConditions">Search Email List By Conditions</el-menu-item>
         </el-sub-menu>
+
+        <el-menu-item index="4" @click="goToForms">
+            <template #title>
+                <el-icon><Document /></el-icon>
+                <span>Forms</span>
+            </template>
+        </el-menu-item>
+
+        <el-menu-item index="5" @click="goToPhotoGallery">
+            <template #title>
+                <el-icon><PictureRounded /></el-icon>
+                <span>Photo Gallery</span>
+            </template>
+        </el-menu-item>
   </el-menu>
 </template>
 
@@ -63,6 +76,20 @@ const photo = () =>{
  */
  const searchEmailListByConditions = () =>{
     router.push('/emailList')
+}
+
+/**
+ * click to google drive forms folder
+ */
+ const goToForms = () =>{
+    window.open("https://drive.google.com/drive/folders/1PDUhwLWgVRKwISJ0e5AIMvDlIOZfyuee?usp=sharing");
+}
+
+/**
+ * click to google photo
+ */
+ const goToPhotoGallery = () =>{
+    window.open("https://photos.app.goo.gl/c6zGfunJyCXDSULH7");
 }
 </script>
 

@@ -77,7 +77,7 @@
                 <el-upload
                   ref="uploadRef"
                   class="upload-demo"
-                  action="http://127.0.0.1:3000/api/v1/admin/create"
+                  action="http://8.219.194.127/api/v1/admin/create"
                   :auto-upload="false"
                   @change="onFileChange"
                 >
@@ -141,7 +141,7 @@ const rules = {
   mainTitle:[{required: 'true', trigger: 'blur', message: 'Please input main title'}],
   time:[{required: 'true', trigger: 'blur', message: 'Please input precise time'}],
   address:[{required: 'true', trigger: 'blur', message: 'Please input correct address'}],
-  mapUrl:[{required: 'true', trigger: 'blur', message: 'Please input Google Map URL'}],
+  mapUrl:[{required: 'true', trigger: 'blur', message: 'Please Insert Google Map URL'}],
   content:[{required: 'true', trigger: 'blur', message: 'Please input details of the rally'}]
 }
 
@@ -179,7 +179,7 @@ const getRallyData = async() => {
   try {
     //使用axios发送一个api的post请求，将FormData对象上传，api地址为 http://127.0.0.1:3000/api/v1/admin/upload，即上传文件将被发送到该地址
     //api的url后期应设置为全局url，以达到规范的要求
-    const res = await axios.post('http://127.0.0.1:3000/api/v1/admin/create', formData, {
+    const res = await axios.post('http://8.219.194.127/api/v1/admin/create', formData, {
       //请求的headers包含'Content-Type': 'multipart/form-data'，这表示我们正在发送多部分表单数据（包括文本和文件）
       headers: {
         'Content-Type': 'multipart/form-data',

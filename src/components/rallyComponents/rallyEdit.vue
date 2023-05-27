@@ -5,7 +5,7 @@
             <el-input v-model="editRally.mainTitle" />
           </el-form-item>
 
-          <el-form-item label="Sub Title" prop="subTitle" required>
+          <el-form-item label="Sub Title" prop="subTitle">
             <el-input v-model="editRally.subTitle" />
           </el-form-item>
 
@@ -21,11 +21,11 @@
             <el-input v-model="editRally.content" type="textarea"/>
           </el-form-item>
 
-          <el-form-item label="Bulletin" prop="bulletin" required>
+          <el-form-item label="Bulletin" prop="bulletin">
             <el-input v-model="editRally.bulletin"/>
           </el-form-item>
           
-          <el-form-item label="Album" prop="album" required>
+          <el-form-item label="Album" prop="album">
             <el-input v-model="editRally.album"/>
           </el-form-item>
 

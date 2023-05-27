@@ -79,7 +79,7 @@ const getEmailListData = async (query) => {
   data.list = res?.data.list;
 
   //将第一个结果中的email list字符串存储在displayEmailList中，如果没有结果，则设置为null
-  displayEmailList.value = data.list[0]?.results || "";
+  displayEmailList.value = data.list || "";
 };
 
 //调用 getEmailListData 函数，显示数据

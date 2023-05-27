@@ -3,7 +3,7 @@
         <!--创建表格-->
         <el-table :data="list" border stripe style="width:1390px">
             <!--第一列-->
-            <el-table-column prop="id" label="Member ID">
+            <el-table-column prop="id" label="ID" width="60">
 
             </el-table-column>
 

@@ -7,7 +7,7 @@
     <!-- 在这里调用，内层代码会自动追加成功后的照片,不需要操作list 手动追加 -->
     <!-- action属性中的url后期应设置为全局url，以达到规范的要求 -->
     <el-row>
-      <el-upload   action="http://127.0.0.1:3000/api/v1/admin/upload" name="image" v-model:file-list="photo.list" 
+      <el-upload   action="http://8.219.194.127/api/v1/admin/upload" name="image" v-model:file-list="photo.list" 
       list-type="picture-card"  :on-preview="handlePictureCardPreview" :on-remove="handleRemove" >
       <el-icon><Plus /></el-icon>
       </el-upload>

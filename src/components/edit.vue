@@ -19,19 +19,12 @@
 
           <el-form-item label="User Name" prop="username">
             <!--input user name-->
-            <el-tooltip
-              class="box-item"
-              effect="light"
-              content="Do not enter duplicate User Name"
-              placement="top"
-            >
-              <el-input v-model="editData.username" placeholder="User Name" />
-            </el-tooltip>
+            <el-input v-model="editData.username" placeholder="User Name" />
           </el-form-item>
 
           <el-form-item label="Pass Word" prop="password">
             <!--input user name-->
-            <el-input v-model="editData.password" placeholder="Pass Word" />
+            <el-input v-model="editData.password" placeholder="Password" />
           </el-form-item>
 
           <el-form-item label="Address" prop="address">
@@ -69,9 +62,9 @@
             <el-input v-model="editData.notes" placeholder="Notes" />
           </el-form-item>
 
-          <el-form-item label="Email Formate" prop="emailFormate">
+          <el-form-item label="Email Formatted" prop="emailFormate">
             <!--input user name-->
-            <el-input v-model="editData.emailFormate" placeholder="Email Formate" />
+            <el-input v-model="editData.emailFormate" placeholder="Email Formatted" />
           </el-form-item>
 
           <el-form-item prop="memberType">
@@ -153,14 +146,9 @@ lastName:[{required: 'true', trigger: 'blur', message: 'Please input Last Name'}
 phoneNumber:[{required: 'true', trigger: 'blur', message: 'Please input Phone Number'}],
 username:[{required: 'true', trigger: 'blur', message: 'Please input the User Name'}],
 password:[{required: 'true', trigger: 'blur', message: 'Please input the Password'}],
-address:[{required: 'true', trigger: 'blur', message: 'Please input the Address'}],
 emailAddress:[{required: 'true', trigger: 'blur', message: 'Please input the Email Address'}],
-birthday:[{required: 'true', trigger: 'blur', message: 'Please input the Birthday'}],
-occupation:[{required: 'true', trigger: 'blur', message: 'Please input the Occupation'}],
-couples:[{required: 'true', trigger: 'blur', message: 'Please input a Number'}],
 dateJoined:[{required: 'true', trigger: 'blur', message: 'Please input a Date'}],
-notes:[{required: 'true', trigger: 'blur', message: 'Please input a Notes'}],
-emailFormate:[{required: 'true', trigger: 'blur', message: 'Please input a Email Formate. Allow duplicate Email Formate'}],
+emailFormate:[{required: 'true', trigger: 'blur', message: 'Please input a Email Formatted'}],
 }
 
 /**
