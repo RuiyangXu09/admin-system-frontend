@@ -1,6 +1,10 @@
 <template>
     <el-dialog title="Edit" modelValue="editShow" width="35%" center :show-close="false">
         <el-form :model="editRally" ref="ruleFormRef">
+          <el-form-item label="Rally ID" prop="rallyID" required >
+            <el-input v-model="editRally.rallyID" />
+          </el-form-item>
+
           <el-form-item label="Main Title" prop="mainTitle" required >
             <el-input v-model="editRally.mainTitle" />
           </el-form-item>
@@ -59,6 +63,7 @@ const editRally = reactive({
     bulletin: item.bulletin,
     album: item.album,
     mapUrl: item.mapUrl,
+    rallyID: item.rallyID,
     id: item.id
 })
 
@@ -71,7 +76,7 @@ const submitForm = async(formEl) =>{
     if (!formEl) return;
     await formEl.validate((valid, fields) =>{
         if (valid) {
-            confirmClick({mainTitle: editRally.mainTitle, subTitle:editRally.subTitle, time: editRally.time, address: editRally.address, content: editRally.content, bulletin: editRally.bulletin, album: editRally.album, mapUrl: editRally.mapUrl, id: editRally.id})
+            confirmClick({mainTitle: editRally.mainTitle, subTitle:editRally.subTitle, time: editRally.time, address: editRally.address, content: editRally.content, bulletin: editRally.bulletin, album: editRally.album, mapUrl: editRally.mapUrl, rallyID: editRally.rallyID, id: editRally.id})
         }else{
             console.log('Error Submit', fields);
         }

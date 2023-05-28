@@ -49,7 +49,7 @@
                         </template>
                     </el-popconfirm>
                     <!-- upload button 传入对应row click触发事件 -->
-                    <el-button :icon="Upload" circle @click="uploadFile(scope.row)"></el-button>
+                    <el-button :icon="Upload" circle @click="updateImage(scope.row)"></el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -59,10 +59,10 @@
 <script setup>
 import { defineProps, onMounted } from 'vue';
 import { Edit, Delete, ZoomIn, Check, Upload, Close } from '@element-plus/icons-vue'
-const { list, previewClick, deleteHandle, closeHandle, openHandle, editClick, uploadHandle } = defineProps(['list', 'previewClick', 'deleteHandle', 'closeHandle', 'openHandle', 'editClick', 'uploadHandle']);
+const { list, previewClick, deleteHandle, closeHandle, openHandle, editClick, updateHandle } = defineProps(['list', 'previewClick', 'deleteHandle', 'closeHandle', 'openHandle', 'editClick', 'updateHandle']);
 
 //定义从rallyMain组件中传递过来的uploadFile的函数，接收一个参数row
-const uploadFile = (row) => {
+const updateImage = (row) => {
     //创建一个新的input元素
     const input = document.createElement('input');
     //设置input元素的类型为file，以便选择文件
@@ -72,7 +72,7 @@ const uploadFile = (row) => {
         //获取用户选择的第一个文件
         const file = input.files[0];
         //调用uploadHandle，传递包含row.id和file的对象
-        uploadHandle({ id: row.id, file });
+        updateHandle({ id: row.id, file });
     };
     //触发input元素的点击事件，打开文件选择对话框
     input.click();

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <rallyTable :list="data.list" :previewClick="previewClick" :deleteHandle="deleteHandle" :closeHandle="closeHandle" :editClick="editClick" :openHandle="openHandle" :uploadHandle="uploadHandle"/>
+        <rallyTable :list="data.list" :previewClick="previewClick" :deleteHandle="deleteHandle" :closeHandle="closeHandle" :editClick="editClick" :openHandle="openHandle" :updateHandle="updateHandle"/>
     </div>
     <rallyPreview :popShow="popShow" v-if="popShow" :message="rallyItemState.message" :cancelClick="cancelClick" />
     <rallyEdit :editShow="editShow" v-if="editShow" :item="editItemState.item" :cancelClick="cancelClick" :confirmClick="confirmClick"/>
@@ -78,8 +78,8 @@ const cancelClick = (val) =>{
  */
 //编辑rally的api调用
 const updateRallyData = async(query) =>{
-    const {mainTitle, subTitle, time, address, content, bulletin, album, mapUrl, id} = query;
-    const res = await updateRally({mainTitle, subTitle, time, address, content, bulletin, album, mapUrl, id});
+    const {mainTitle, subTitle, time, address, content, bulletin, album, mapUrl, rallyID, id} = query;
+    const res = await updateRally({mainTitle, subTitle, time, address, content, bulletin, album, mapUrl, rallyID, id});
     if (res?.message) {
         ElMessage({
         message: res.message,
@@ -108,7 +108,7 @@ const confirmClick = (val) =>{
     if (val === 'cancel') {
         //如果点击cancel，关闭弹窗
         isEditPop(false);
-    }else if (val.mainTitle !== editItemState.item.mainTitle || val.subTitle !== editItemState.item.subTitle || val.time !== editItemState.item.time || val.address !== editItemState.item.address || val.content !== editItemState.item.content || val.bulletin !== editItemState.item.bulletin || val.album !== editItemState.item.album || val.mapUrl !== editItemState.mapUrl) {
+    }else if (val.mainTitle !== editItemState.item.mainTitle || val.subTitle !== editItemState.item.subTitle || val.time !== editItemState.item.time || val.address !== editItemState.item.address || val.content !== editItemState.item.content || val.bulletin !== editItemState.item.bulletin || val.album !== editItemState.item.album || val.mapUrl !== editItemState.mapUrl || val.rallyID !== editItemState.rallyID) {
         data.list.map((item) =>{
             //修改对应的表格中的数据
             if (item.id === val.id) {
@@ -120,12 +120,13 @@ const confirmClick = (val) =>{
                 item.bulletin = val.bulletin
                 item.album = val.album
                 item.mapUrl = val.mapUrl
+                item.rallyID = val.rallyID
             }
         })
         //关闭弹窗
         isEditPop(false);
         //修改接口的调用
-        updateRallyData({mainTitle: val.mainTitle, subTitle: val.subTitle, time: val.time, address: val.address, content: val.content, bulletin: val.bulletin, album: val.album, mapUrl: val.mapUrl, id: val.id})
+        updateRallyData({mainTitle: val.mainTitle, subTitle: val.subTitle, time: val.time, address: val.address, content: val.content, bulletin: val.bulletin, album: val.album, mapUrl: val.mapUrl, rallyID: val.rallyID, id: val.id})
     }else{
         ElMessage({
         showClose: true,
@@ -203,7 +204,7 @@ const openHandle = (val) =>{
 /**
  * upload report api 接收一个参数 formData
  */
-const uploadReportData = async (formData) => {
+const updateCoverImageData = async (formData) => {
     //调用api 等待uploadBulletin完成，并将结果赋值给res
     const res = await uploadBulletin(formData);
     //如果接收到后端传递的message，提示upload success
@@ -216,7 +217,7 @@ const uploadReportData = async (formData) => {
 };
 
 //定义uploadHandle的异步函数，接收val
-const uploadHandle = async (val) => {
+const updateHandle = async (val) => {
     //如果val中包含rallyTable组件中包含id和file
     if (val.id && val.file) {
         //创建FormData
@@ -225,7 +226,7 @@ const uploadHandle = async (val) => {
         formData.append('file', val.file);
         formData.append('id', val.id);
         //调用uploadReportData函数
-        await uploadReportData(formData);
+        await updateCoverImageData(formData);
   }
 };
 </script>
