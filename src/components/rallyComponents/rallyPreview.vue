@@ -58,7 +58,7 @@
       <el-descriptions :model="rallyDetails" class="font-style">
         <el-descriptions-item label="Content: ">
           <div>
-            <span class="font-size">
+            <span class="font-size" :style="{ whiteSpace: 'pre-wrap' }">
               {{ rallyDetails.content }}
             </span>
           </div>
